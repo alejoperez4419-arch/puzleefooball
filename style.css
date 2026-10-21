@@ -1,0 +1,691 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Russo+One&display=swap');
+
+:root {
+    --blue: #1767f8;
+    --blue2: #3b86ff;
+    --ink: #152b4e;
+    --muted: #7184a3;
+    --line: #d3e0f3;
+    --bg: #edf4ff;
+    --white: #fff;
+    --shadow: 0 18px 55px rgba(50, 91, 153, .12)
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    font-family: Inter, Arial, sans-serif;
+    color: var(--ink);
+    font-weight: bold;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 22px 14px;
+    background-image: url(assets/fondo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+
+}
+
+button,
+input {
+    font: inherit
+}
+
+.app {
+    width: 100%;
+    max-width: 430px;
+    min-height: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    animation: screenIn .3s ease both
+}
+
+.screen.active {
+    display: block
+}
+
+.upload-card,
+.puzzle-card,
+.rewards-card,
+.id-card,
+.sent-card {
+    position: relative;
+    width: 100%;
+    background: rgba(255, 255, 255, .96);
+    border: 1px solid rgba(202, 218, 241, .9);
+    border-radius: 19px;
+    box-shadow: var(--shadow);
+    overflow: hidden
+}
+
+.upload-card {
+    padding: 28px 25px 22px;
+    text-align: center
+}
+
+.brand-logo {
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px
+}
+
+.logo{
+        width: 100%;
+}
+.brand-logo img {
+    max-width: 205px;
+    max-height: 62px;
+    object-fit: contain
+}
+
+.fallback-logo {
+    font: 26px 'Russo One', Inter, sans-serif;
+    color: #347eff;
+    letter-spacing: -.8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.1
+}
+
+.fallback-logo small {
+    font: 700 10px Inter, sans-serif;
+    letter-spacing: 1px
+}
+
+.step-caption {
+    color: #4584f6;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 2.2px;
+    margin: 12px 0 8px
+}
+
+h1,
+h2,
+p {
+    margin-top: 0
+}
+
+.upload-card h1 {
+    font: 26px 'Russo One', Inter, sans-serif;
+    margin: 0 0 8px;
+    color: #1c6af5
+}
+
+.muted {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin-bottom: 20px
+}
+
+.upload-drop {
+    border: 1.5px dashed #8eb5ff;
+    border-radius: 13px;
+    min-height: 132px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: linear-gradient(180deg, #f9fbff, #f1f6ff);
+    cursor: pointer;
+    transition: .2s
+}
+
+.upload-drop:hover {
+    border-color: var(--blue);
+    background: #edf4ff
+}
+
+.upload-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: #e0ebff;
+    color: var(--blue);
+    font-size: 24px;
+    font-weight: 400
+}
+
+.upload-drop strong {
+    font-size: 12px;
+    color: #244a83
+}
+
+.upload-drop small {
+    font-size: 10px;
+    color: #8b9bb5
+}
+
+.upload-preview {
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+    margin-top: 12px;
+    border-radius: 10px;
+    background: #f2f6fd
+}
+
+.primary-btn {
+    border: 0;
+    border-radius: 11px;
+    min-height: 51px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(100deg, #1765f5, #3987ff);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+    box-shadow: 0 4px 0 #0d4bc9;
+    cursor: pointer;
+    transition: transform .15s, filter .15s;
+    margin-top: 18px
+}
+
+.primary-btn span {
+    font-size: 17px;
+    font-weight: 500
+}
+
+.primary-btn:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px)
+}
+
+.primary-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #0d4bc9
+}
+
+.primary-btn:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+    filter: grayscale(.2);
+    transform: none
+}
+
+.tiny-note {
+    font-size: 9px;
+    color: #9aabc3;
+    margin: 17px 0 0
+}
+
+.puzzle-card {
+    padding: 22px 18px 18px;
+    text-align: center
+}
+
+.puzzle-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-bottom: 8px
+}
+
+.puzzle-heading h1 {
+    font: 22px 'Russo One', Inter, sans-serif;
+    color: #236ff8;
+    margin: 0
+}
+
+.mini-mark {
+    display: grid;
+    place-items: center;
+    width: 29px;
+    height: 29px;
+    background: #e7f0ff;
+    color: #2877ff;
+    border-radius: 9px;
+    font: 12px 'Russo One', sans-serif
+}
+
+.puzzle-card>.muted {
+    margin-bottom: 16px
+}
+
+.puzzle-board {
+    width: 100%;
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3px;
+    padding: 4px;
+    background: #dbe6f8;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(42, 80, 140, .12)
+}
+
+.puzzle-tile {
+    position: relative;
+    border: 0;
+    padding: 0;
+    min-width: 0;
+    min-height: 0;
+    border-radius: 3px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    touch-action: manipulation
+}
+
+.puzzle-tile::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255, 255, 255, .2);
+    pointer-events: none
+}
+
+.puzzle-tile:focus-visible {
+    outline: 3px solid #1767f8;
+    outline-offset: -3px
+}
+
+.puzzle-tile.empty {
+    background: linear-gradient(135deg, #d8e6fc, #eaf1fd) !important;
+    border: 1px dashed #aac5f4;
+    cursor: default
+}
+
+.puzzle-tile.empty::before {
+    content: "+";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: #a7c3f5;
+    font-size: 26px;
+    font-weight: 300
+}
+
+.puzzle-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+    color: #5e7191;
+    font-size: 11px;
+    font-weight: 600
+}
+
+.moves-label {
+    font-size: 9px;
+    color: #8495ae;
+    letter-spacing: 1px
+}
+
+.moves-label b {
+    color: #246df4;
+    font-size: 12px;
+    margin-left: 4px
+}
+
+.subtle-btn {
+    border: 0;
+    background: transparent;
+    color: #6c85aa;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 12px 8px 0;
+    cursor: pointer
+}
+
+.subtle-btn:hover {
+    color: var(--blue)
+}
+
+.rewards-card,
+.sent-card {
+    padding: 24px 18px 19px;
+    text-align: center
+}
+
+.top-accent {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #1767ff, #78a8ff);
+    border-radius: 0 0 5px 5px
+}
+
+.celebration-icon {
+    font-size: 23px;
+    margin: 0 0 8px
+}
+
+.rewards-card h2,
+.sent-card h2 {
+    font: 20px 'Russo One', Inter, sans-serif;
+    color: #1769f8;
+    margin-bottom: 14px
+}
+
+.rewards-card>.muted,
+.sent-card>.muted {
+    font-size: 11px;
+    margin-bottom: 18px
+}
+
+.reward-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    text-align: center
+}
+
+.reward-item {
+    min-width: 0;
+    border: 1px solid #9ec1ff;
+    border-radius: 10px;
+    padding: 8px 5px 7px;
+    box-shadow: 0 3px 9px rgba(41, 107, 242, .07);
+    background: linear-gradient(180deg, #fff, #f7faff);
+    position: relative
+}
+
+.reward-item::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    top: 0;
+    height: 2px;
+    background: #3486ff;
+    border-radius: 4px
+}
+
+.reward-item img {
+    width: 100%;
+    height: 65px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 5px
+}
+
+.reward-item strong {
+    display: block;
+    font-size: 10px;
+    line-height: 1.3;
+    color: #28456e;
+    overflow-wrap: anywhere
+}
+
+.reward-item small {
+    display: block;
+    font-size: 8px;
+    color: #7d8da6;
+    margin-top: 3px
+}
+
+.rewards-card .primary-btn,
+.sent-card .primary-btn {
+    margin-top: 19px
+}
+
+.id-card {
+    padding: 40px 26px 27px;
+    text-align: center;
+    border-radius: 18px
+}
+
+.id-logo {
+    max-width: 220px;
+    width: 70%;
+    height: 74px;
+    object-fit: contain;
+    margin: 0 auto 22px
+}
+
+.id-fallback {
+    font-size: 24px;
+    margin: 0 auto 25px
+}
+
+#idForm {
+    display: flex;
+    flex-direction: column;
+    gap: 17px
+}
+
+#playerId {
+    width: 100%;
+    height: 53px;
+    border: 1.5px solid #2e79ff;
+    border-radius: 13px;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(37, 112, 255, .09);
+    outline: none;
+    text-align: center;
+    padding: 0 14px;
+    color: #263e60;
+    font-size: 14px
+}
+
+#playerId::placeholder {
+    color: #95a4bc
+}
+
+#playerId:focus {
+    box-shadow: 0 0 0 4px rgba(37, 112, 255, .15)
+}
+
+#idForm .primary-btn {
+    margin: 0
+}
+
+.form-error {
+    min-height: 12px;
+    color: #d43b50;
+    font-size: 10px;
+    margin: 12px 0 0
+}
+
+.id-card .top-accent {
+    left: 8%;
+    right: 8%
+}
+
+.sent-check {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #e3f8e9;
+    color: #1aa75b;
+    font-size: 26px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 12px;
+    font-weight: 800
+}
+
+.submitted-id {
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    background: #eef4ff;
+    border: 1px solid #d8e6ff;
+    border-radius: 8px;
+    padding: 9px 14px;
+    color: #2269e9;
+    font-size: 14px;
+    font-weight: 800;
+    margin: -5px 0 16px
+}
+
+.disclaimer {
+    font-size: 9px;
+    line-height: 1.5;
+    color: #9ba9bd;
+    margin: 14px 0 0
+}
+
+#confettiCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99
+}
+
+@keyframes screenIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(.99)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1)
+    }
+}
+
+@media(min-width:600px) {
+    body {
+        padding: 32px
+    }
+
+    .app {
+        max-width: 430px
+    }
+
+    .upload-card {
+        padding: 34px 26px 25px
+    }
+
+    .puzzle-card {
+        padding: 24px
+    }
+
+    .rewards-card,
+    .sent-card {
+        padding: 27px 22px 22px
+    }
+}
+
+@media(max-width:360px) {
+    body {
+        padding: 12px 9px
+    }
+
+    .upload-card {
+        padding: 22px 17px 18px
+    }
+
+    .puzzle-card {
+        padding: 17px 12px 14px
+    }
+
+    .puzzle-heading h1 {
+        font-size: 19px
+    }
+
+    .reward-item {
+        padding: 7px 3px
+    }
+
+    .reward-item img {
+        height: 56px
+    }
+
+    .reward-item strong {
+        font-size: 9px
+    }
+
+    .id-card {
+        padding: 34px 18px 23px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important
+    }
+}
+
+.loading-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 17px;
+    background: rgba(237, 244, 255, .9);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .16s ease, visibility .16s ease
+}
+
+.loading-overlay.visible {
+    opacity: 1;
+    visibility: visible
+}
+
+.loader-ring {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: 5px solid #cfe0ff;
+    border-top-color: #1767f8;
+    border-right-color: #3987ff;
+    animation: circleSpin .7s linear infinite;
+    box-shadow: 0 5px 18px rgba(23, 103, 248, .12)
+}
+
+.loading-label {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #276fe9
+}
+
+@keyframes circleSpin {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .loader-ring {
+        animation-duration: 1.3s
+    }
+}

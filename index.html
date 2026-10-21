@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#edf4ff">
+  <title>Secret Player — eFootball Rewards</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="app">
+    <section class="screen active" id="uploadScreen" aria-labelledby="uploadTitle">
+      <div class="upload-card">
+        <div class="step-caption">IMAGE CHALLENGE</div>
+        <h1 id="uploadTitle">Upload Image</h1>
+        <p class="muted">Choose an image to create your puzzle.</p>
+        <label class="upload-drop" for="imageInput">
+          <span class="upload-icon">＋</span>
+          <strong id="uploadLabel">Choose an image</strong>
+          <small>JPG, PNG or WEBP</small>
+        </label>
+        <input type="file" id="imageInput" accept="image/*" hidden>
+        <img id="uploadPreview" class="upload-preview" alt="Image preview" hidden>
+        <button class="primary-btn" id="startPuzzleBtn" disabled>CONTINUE <span>→</span></button>
+        <p class="tiny-note">Your image stays in this browser.</p>
+      </div>
+    </section>
+
+    <section class="screen" id="puzzleScreen" aria-labelledby="puzzleTitle">
+      <div class="puzzle-card">
+        <div class="puzzle-heading"><span class="mini-mark"></span>
+          <img class="logo" src="assets/logo white2.png" alt="">
+        </div>
+
+        <div id="puzzleBoard" class="puzzle-board" aria-label="Sliding image puzzle"></div>
+        <div class="puzzle-footer"><span id="piecesLabel">9 pieces</span><span class="moves-label">MOVES <b
+              id="movesCount">0</b></span></div>
+        <button class="subtle-btn" id="backUploadBtn">← Change image</button>
+      </div>
+    </section>
+
+    <section class="screen" id="rewardsScreen" aria-labelledby="rewardTitle">
+      <div class="rewards-card">
+        <div class="top-accent"></div>
+        <div class="celebration-icon">🎉</div>
+        <h2 id="rewardTitle">Congratulations</h2>
+        <p class="muted">You have received eFootball rewards</p>
+        <div class="reward-list" id="rewardList"></div>
+        <button class="primary-btn" id="rewardsNextBtn">NEXT <span>→</span></button>
+      </div>
+    </section>
+
+    <section class="screen" id="idScreen" aria-labelledby="idTitle">
+      <div class="id-card">
+        <div class="top-accent"></div>
+        <img class="id-logo" src="assets/logo white2.png" alt="Secret Player" onerror="this.style.display='none'">
+        <form id="idForm">
+          <input id="playerId" name="playerId" type="text" placeholder="Enter your ID" autocomplete="off" maxlength="80"
+            required aria-label="Enter your ID">
+          <button class="primary-btn" type="submit">NEXT <span>→</span></button>
+        </form>
+        <p class="form-error" id="formError" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="screen" id="sentScreen" aria-labelledby="sentTitle">
+      <div class="sent-card">
+        <div class="top-accent"></div>
+        <div class="sent-check">✓</div>
+        <h2 id="sentTitle">Reward sent to</h2>
+        <div class="submitted-id" id="submittedId"></div>
+        <p class="muted">Your selected rewards</p>
+        <div class="reward-list" id="sentRewardList"></div>
+        <button class="primary-btn" id="homeBtn">HOME</button>
+      </div>
+    </section>
+  </main>
+  <div class="loading-overlay" id="loadingOverlay" aria-hidden="true" role="status" aria-label="Loading">
+    <div class="loader-ring"></div>
+    <span class="loading-label">PLEASE WAIT</span>
+  </div>
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+  <script src="main.js"></script>
+</body>
+
+</html>
